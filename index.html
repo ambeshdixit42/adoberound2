@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset = "UTF-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;300;400;700&display=swap');
+
+    body {
+      background-color: #f0f5ff;
+      font-family: 'Jost',sans-serif;
+      color: #080505;
+    }
+    input[type="text"]{
+      padding: 10px;
+      display: block;
+      border-radius: 5px;
+      border: 1px solid lightgrey;
+      background: none;
+      width: 274px;
+      color: black;
+    }
+    input[type="number"]{
+      padding: 10px;
+      display: block;
+      border-radius: 5px;
+      border: 1px solid lightgrey;
+      background: none;
+      width: 274px;
+      color: black;
+    }   
+    input[type="text"]:focus {
+      outline: none;
+    }     
+    h1 {
+      text-align: center;
+      font-size: 48px;
+      color: #232c3d;
+      padding: 10px;
+      margin: 10px auto;
+    }
+    </style>
+  <script>
+    var i = 1,j=1,k=1;
+    function addskill(){
+      var newField = document.createElement('input');
+      newField.setAttribute('type','text');
+      newField.setAttribute('name','skills[]');
+      document.getElementById("skills").appendChild(document.createElement('br'));
+      document.getElementById("skills").appendChild(newField);
+    }
+    function addeducation(){
+      var label1 = document.createElement('label');
+      var label2 = document.createElement('label');
+      var label3 = document.createElement('label');
+      var newField1 = document.createElement('input');
+      var newField2 = document.createElement('input');
+      var newField3 = document.createElement('input');
+      label1.innerText = "School Name";
+      label2.innerText = "Passing Year";
+      label3.innerText = "Description";
+
+      newField1.setAttribute('type','text');
+      newField1.setAttribute('name','education['+i+'][school_name]');
+      newField2.setAttribute('type','text');
+      newField2.setAttribute('name','education['+i+'][passing_year]');
+      newField3.setAttribute('type','text');
+      newField3.setAttribute('name','education['+i+'][description]');
+      document.getElementById("education").appendChild(document.createElement('br'));      
+      document.getElementById("education").appendChild(label1);
+      document.getElementById("education").appendChild(document.createElement('br'));
+      document.getElementById("education").appendChild(newField1);
+      document.getElementById("education").appendChild(document.createElement('br'));      
+      document.getElementById("education").appendChild(label2);
+      document.getElementById("education").appendChild(document.createElement('br'));
+      document.getElementById("education").appendChild(newField2);
+      document.getElementById("education").appendChild(document.createElement('br'));      
+      document.getElementById("education").appendChild(label3);
+      document.getElementById("education").appendChild(document.createElement('br'));
+      document.getElementById("education").appendChild(newField3);  
+      i++; 
+    }
+    function addexperience(){
+      var label1 = document.createElement('label');
+      var label2 = document.createElement('label');
+      var label3 = document.createElement('label');
+      var newField1 = document.createElement('input');
+      var newField2 = document.createElement('input');
+      var newField3 = document.createElement('input');
+      label1.innerText = "Company Name";
+      label2.innerText = "Passing Year";
+      label3.innerText = "Responsibilities";
+      newField1.setAttribute('type','text');
+      newField1.setAttribute('name','experience['+j+'][company_name]');
+      newField2.setAttribute('type','text');
+      newField2.setAttribute('name','experience['+j+'][passing_year]');
+      newField3.setAttribute('type','text');
+      newField3.setAttribute('name','experience['+j+'][responsibilities]');
+      document.getElementById("experience").appendChild(document.createElement('br'));      
+      document.getElementById("experience").appendChild(label1);
+      document.getElementById("experience").appendChild(document.createElement('br'));
+      document.getElementById("experience").appendChild(newField1);
+      document.getElementById("experience").appendChild(document.createElement('br'));      
+      document.getElementById("experience").appendChild(label2);
+      document.getElementById("experience").appendChild(document.createElement('br'));
+      document.getElementById("experience").appendChild(newField2);
+      document.getElementById("experience").appendChild(document.createElement('br'));      
+      document.getElementById("experience").appendChild(label3);
+      document.getElementById("experience").appendChild(document.createElement('br'));
+      document.getElementById("experience").appendChild(newField3);   
+    }
+    function addachiev(){
+      var label1 = document.createElement('label');
+      var label2 = document.createElement('label');
+      var newField1 = document.createElement('input');
+      var newField2 = document.createElement('input');
+      label1.innerText = "Field";
+      label2.innerText = "Award";
+      newField1.setAttribute('type','text');
+      newField1.setAttribute('name','achievements['+k+'][field]');
+      newField2.setAttribute('type','text');
+      newField2.setAttribute('name','achievements['+k+'][awards]');
+      document.getElementById("achiev").appendChild(document.createElement('br'));      
+      document.getElementById("achiev").appendChild(label1);
+      document.getElementById("achiev").appendChild(document.createElement('br'));
+      document.getElementById("achiev").appendChild(newField1);
+      document.getElementById("achiev").appendChild(document.createElement('br'));      
+      document.getElementById("achiev").appendChild(label2);
+      document.getElementById("achiev").appendChild(document.createElement('br'));
+      document.getElementById("achiev").appendChild(newField2); 
+    }
+    </script>
+
+</head>
+  <title> Resume </title>
+<body>
+    <header>
+      <h1><Center>Resume</Center></h1>
+    </header>
+    <form action="/resume" method = "POST">
+      <fieldset>
+        <label style = "font-size: 30px;">Choose any 1 template</label>
+        <br><br>
+        <input type="radio" id="template1" name = "template_id" value = "1">
+        <label><a href="https://drive.google.com/file/d/1x8t-QRPLnBeO9l2LgqDtRX3eRj6Qcbli/view?usp=sharing">Template 1</a></label>
+        <br><br>
+        <input type="radio" id="template2" name = "template_id" value = "2">
+        <label><a href="https://drive.google.com/file/d/1wC9Q4bULeeHeMYZ_MqsSFoobTVXdIzS9/view?usp=sharing">Template 2</a></label>
+        <br><br>
+        <input type="radio" id="template3" name = "template_id" value = "3">
+        <label><a href="https://drive.google.com/file/d/1JZ76EimK2uSgfp2jQ3W3btfYXNOm14Lm/view?usp=sharing">Template 3</a></label>
+        <br><br>
+        <label style = "font-size: 30px;">First Name</label>
+        <input type="text" id = "name" name="personal_information[name]" required>
+        <br><br>
+        <label style = "font-size: 30px;">Last Name</label>
+        <input type="text" id = "last_name" name="personal_information[last_name]" required>
+        <br><br>
+        <label style = "font-size: 30px;">Email Address</label>
+        <input type="text" id = "email_address" name="personal_information[email_address]" required >
+        <br><br>
+        <label style = "font-size: 30px;">Phone Number</label>
+        <input type="text" id = "phone_number" name="personal_information[phone_number]" required>
+        <br><br>
+        <label style = "font-size: 30px;">Linkedin Url</label>
+        <input type="text" id = "linkedin_url" name="personal_information[linkedin_url]" required>
+        <br><br>
+        <label style = "font-size: 30px;">Job Title</label>
+        <input type="text" id = "job_title" name="job_title" required>
+        <br><br>
+        <label style = "font-size: 30px;">Career Objective</label>
+        <input type="text" id = "career_objective" name="career_objective" required>
+        <br><br>
+        <div id = "skills">
+          <label style = "font-size: 30px;">Skills</label>
+          <input type="text" id = "skills[]" name="skills[]" required>
+        </div>       
+        <br>
+          <div class="controls">
+            <button style="width: 10rem;" onclick= "addskill()" type = "button" >ADD SKILL</button>         
+        </div>      
+        <br><br>
+
+        <div id = "education">
+          <label style = "font-size: 30px;">Education</label>
+        <br><br>
+          <label>School Name</label>
+          <input type="text" id = "education[][school_name]" name="education[0][school_name]" required>
+          <br>
+          <label>Passing year</label>
+          <input type="text" id = "education[][passing_year]" name="education[0][passing_year]" required>
+          <br>
+          <label>Description</label>
+          <input type="text" id = "education[][description]" name="education[0][description]" required>       
+       </div>
+        <br>
+        <div class="controls">
+          <button style="width: 10rem;" onclick= "addeducation()" type = "button" >ADD EDUCATION</button>         
+         </div> 
+
+        <br><br>
+        <label style = "font-size: 30px;">Experience</label>
+        <br><br>
+        <div id = "experience" >
+          <label>Company Name</label>
+          <input type="text" id = "experience[][company_name]" name="experience[][company_name]" required>
+          <br>
+          <label>Passing year</label>
+          <input type="text" id = "experience[][passing_year]" name="experience[][passing_year]" required>
+          <br>
+          <label>Responsibilities</label>
+          <input type="text" id = "experience[][responsibilities]" name="experience[][responsibilities]" required>
+        </div>
+        <br>
+        <div class="controls">
+          <button style="width: 10rem;" onclick= "addexperience()" type = "button" >ADD EXPERIENCE</button>         
+         </div>      
+        <br><br>
+        <label style = "font-size: 30px;">Achievements</label>
+        <br><br>
+         <div id = "achiev">
+          <label>Field</label>
+          <input type="text" id = "achievements[][field]" name="achievements[][field]" required>
+          <br>
+          <label>Award</label>
+          <input type="text" id = "achievements[][awards]" name="achievements[][awards]" required>         
+          <br>
+         </div>
+        <div class="controls">
+          <button style="width: 10rem;" onclick= "addachiev()" type = "button" >ADD ACHIEVEMENT</button>         
+         </div>
+        <br><br>
+        <button type = "submit">Submit</button>       
+      </fieldset>
+    </form>
+</body>
+
+ 
+
+    

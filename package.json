@@ -1,0 +1,24 @@
+{
+  "name": "pdfservices-node-sdk-samples",
+  "version": "3.4.0",
+  "description": "PDF Services Node.js SDK sample",
+  "author": "Adobe",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/adobe/pdfservices-node-sdk-samples.git"
+  },
+  "dependencies": {
+    "@adobe/pdfservices-node-sdk": "3.4.0",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
+  },
+  "bugs": {
+    "url": "https://github.com/adobe/pdfservices-node-sdk-samples/issues"
+  },
+  "homepage": "https://github.com/adobe/pdfservices-node-sdk-samples#readme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
