@@ -69,7 +69,10 @@ async function call(req,res){
   if(req.body.template_id==undefined || req.body.personal_information.name == undefined || req.body.personal_information.last_name == undefined ||
     req.body.personal_information.email_address == undefined || req.body.personal_information.phone_number==undefined ||
      req.body.personal_information.linkedin_url==undefined || req.body.job_title == undefined || req.body.career_objective ==undefined ||
-     req.body.skills == undefined || req.body.education == undefined || req.body.experience == undefined || req.body.achievements == undefined){
+     req.body.skills == undefined || req.body.education == undefined || req.body.experience == undefined || req.body.achievements == undefined
+     || req.body.personal_information.name == "" || req.body.personal_information.last_name == "" ||req.body.personal_information.email_address == "" 
+     || req.body.personal_information.phone_number=="" ||req.body.personal_information.linkedin_url==""|| req.body.job_title == "" || 
+      req.body.career_objective ==""){
       outputFilePath = undefined; 
       return res.status(400).send("Bad request");
      }
@@ -82,6 +85,16 @@ async function call(req,res){
   obj['JobTitle'] = req.body.job_title,
   obj['Summary'] = req.body.career_objective,
   obj['Skills'] = req.body.skills
+  var c=0;
+   for(var i=0;i<req.body.skills.length;i++){
+         if(req.body.skills[i]==""){
+             c++;
+         }
+   }
+   if(c==req.body.skills.length){
+      outputFilePath = undefined; 
+      return res.status(400).send("Bad request");
+   }
   //fetching array of objects using for loop
   var obj1= []
  for(var i =0;i<req.body.education.length;i++){
@@ -139,6 +152,10 @@ async function call(req,res){
   //block to handle pdf merfging
   try {
     // Initial setup, create credentials instance.
+    if(process.env.PDF_SERVICES_CLIENT_ID==undefined || process.env.PDF_SERVICES_CLIENT_SECRET == undefined){
+      outputFilePath = undefined
+      return res.status(401).send("Unauthorised")  
+    }
     const credentials =  PDFServicesSdk.Credentials
         .servicePrincipalCredentialsBuilder()
         .withClientId(process.env.PDF_SERVICES_CLIENT_ID)
